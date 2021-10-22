@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Sistema from '../views/Sistema.vue'
+
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },{
+    path: '/Sistema',
+    name: 'Sistema',
+    component: Sistema
   },
   {
     path: '/about',
