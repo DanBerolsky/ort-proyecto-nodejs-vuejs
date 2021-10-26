@@ -4,6 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <h2>Home</h2>
     <p>Numero {{this.numero}}</p>
+    <button @click="incremetarNumero()">numero</button>
   </div>
 </template>
 
@@ -17,6 +18,11 @@
     
     data() {
       return {numero : 0} 
+    },
+    methods : {
+      incremetarNumero() {
+        this.numero++
+      }  
     },
     
     components: {
