@@ -4,7 +4,8 @@ import { createStore } from 'vuex'
 const store = createStore({
   state () {
     return {
-      count: 0
+      count: 0,
+      productos : [{nombre="remera",precio:1600},{nombre="zapatilla",precio:1600}]
     }
   },
   mutations: {
