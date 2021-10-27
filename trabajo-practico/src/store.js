@@ -8,9 +8,7 @@ const store = createStore({
     }
   },
   mutations: {
-    increment () {
-      this.count++
-    }
+    
   }
 })
 
