@@ -1,5 +1,4 @@
 <template>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <div id='lista' class="container-sm">
         <table class="table">
     <thead>
@@ -10,12 +9,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-        <th scope="row">1</th>
-        <td>remera</td>
-        <td>1500</td>
         
-        </tr>
+        <div v-for="item in [{nombre="remera",precio:1600},{nombre="zapatilla",precio:1600}]">
+            <tr>
+            <th scope="row">1</th>
+            <td>{{item.Nombre}}</td>
+            <td>{{item.Precio}}</td>
+            
+            </tr>
+        </div>
+
         
     </tbody>
     </table>
@@ -28,12 +31,17 @@
 
 
 <script>
+    import { mapState } from 'vuex'
+    
+    export default {
+        name : 'ListaProducto', 
+        
+        computed:{
+        ...mapState(['productos'])
+        }
+    }
 
 
-
-export default {
-    name : 'ListaProducto'
-}
 </script>
 
 <style>
