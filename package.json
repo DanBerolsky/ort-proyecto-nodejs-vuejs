@@ -1,0 +1,20 @@
+{
+  "name": "ort-proyecto-nodejs",
+  "version": "1.0.0",
+  "description": "https://aulavirtual.instituto.ort.edu.ar/pluginfile.php/94641/mod_resource/content/1/PNT2-TPF.pdf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanBerolsky/ort-proyecto-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanBerolsky/ort-proyecto-nodejs/issues"
+  },
+  "homepage": "https://github.com/DanBerolsky/ort-proyecto-nodejs#readme"
+}
