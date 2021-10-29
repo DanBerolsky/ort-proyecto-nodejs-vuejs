@@ -14,3 +14,25 @@
   </div>
   
 </template>
+
+<style >
+    
+    .navbar{
+        border-radius: 25px
+    }
+    .navbar-brand {
+    padding: 3px;
+    /* padding-top: 0px; */
+    /* padding-bottom: 0px; */
+    margin-right: 2rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+    .navbar-brand:hover{
+      background-color: #70dbfb69;
+      color: white;
+      border-radius: 10px
+    }
+    
+</style>
