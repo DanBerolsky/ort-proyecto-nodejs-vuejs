@@ -1,28 +1,14 @@
 <template>
-  <div id='lista' class="container-sm">
-        <table class="table">
-    <thead>
-        <tr>
-        <th scope="">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Precio</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-        <div v-for="item in [{nombre="remera",precio:1600},{nombre="zapatilla",precio:1600}]">
-            <tr>
-            <th scope="row">1</th>
-            <td>{{item.Nombre}}</td>
-            <td>{{item.Precio}}</td>
-            
-            </tr>
+  <div class="container">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-success">Agregar producto</button>
+            <button type="button" class="btn btn-outline-primary">Modificar producto</button>
+            <button type="button" class="btn btn-outline-danger">Quitar producto</button>
         </div>
-
-        
-    </tbody>
-    </table>
-  </div>
+        <ul class="list-group">
+            <br>
+            <li class="list-group-item" v-for="(item, index) in productos" :key="index">{{ item.descripcion }} ${{item.precio}}</li>
+        </ul>
   </div>
 </template>
 

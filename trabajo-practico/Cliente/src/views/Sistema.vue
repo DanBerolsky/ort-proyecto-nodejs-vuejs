@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h2>Sistema</h2>
+      <h2 class="text-center container">Sistema</h2>
       <!--<p>Estado {{this.$store.state.count}}</p>
       <p>Estado desde ...mapState {{count}}</p>-->
      
