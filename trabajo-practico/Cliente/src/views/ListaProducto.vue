@@ -1,25 +1,14 @@
 <template>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <div id='lista' class="container-sm">
-        <table class="table">
-    <thead>
-        <tr>
-        <th scope="">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Precio</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <th scope="row">1</th>
-        <td>remera</td>
-        <td>1500</td>
-        
-        </tr>
-        
-    </tbody>
-    </table>
-  </div>
+  <div class="container">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-success">Agregar producto</button>
+            <button type="button" class="btn btn-outline-primary">Modificar producto</button>
+            <button type="button" class="btn btn-outline-danger">Quitar producto</button>
+        </div>
+        <ul class="list-group">
+            <br>
+            <li class="list-group-item" v-for="(item, index) in productos" :key="index">{{ item.descripcion }} ${{item.precio}}</li>
+        </ul>
   </div>
 </template>
 
@@ -28,12 +17,17 @@
 
 
 <script>
+    import { mapState } from 'vuex'
+    
+    export default {
+        name : 'ListaProducto', 
+        
+        computed:{
+        ...mapState(['productos'])
+        }
+    }
 
 
-
-export default {
-    name : 'ListaProducto'
-}
 </script>
 
 <style>
