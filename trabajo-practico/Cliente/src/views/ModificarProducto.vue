@@ -1,5 +1,7 @@
 <template>
-  
+  <div>
+       ModificarProducto
+  </div>
 </template>
 
 <script>

@@ -3,9 +3,9 @@ import Home from '../views/Home.vue'
 import Sistema from '../views/Sistema.vue'
 import About from '../views/About.vue'
 import ListaProducto from '../views/ListaProducto.vue'
-
-
-
+import AgregarProducto from '../views/AgregarProducto.vue'
+import QuitarProducto from '../views/QuitarProducto.vue'
+import ModificarProducto from '../views/ModificarProducto.vue'
 
 const routes = [
   {
@@ -23,9 +23,24 @@ const routes = [
     component: About
   },
   {
-    path: '/ListaProducto',
+    path: '/listaProducto',
     name: 'ListaProducto',
     component: ListaProducto
+  },
+  {
+    path: '/agregarProducto',
+    name: 'agregarProducto',
+    component: AgregarProducto
+  },
+  {
+    path: '/quitarProducto',
+    name: 'quitarProducto',
+    component: QuitarProducto
+  },
+  {
+    path: '/modificarProducto',
+    name: 'modificarProducto',
+    component: ModificarProducto
   }
 
 ]

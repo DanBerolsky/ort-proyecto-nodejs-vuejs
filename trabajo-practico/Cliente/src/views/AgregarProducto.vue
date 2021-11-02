@@ -1,5 +1,7 @@
 <template>
-  
+  <div>
+       AgregarProducto
+  </div>
 </template>
 
 <script>
