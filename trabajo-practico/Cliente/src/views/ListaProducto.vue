@@ -10,7 +10,7 @@
     <ul class="list-group">
       <li
         class="list-group-item item"
-        v-for="(item, index) in productos"
+        v-for="(item, index) in this.listaProductos"
         :key="index"
         
       >
@@ -44,14 +44,14 @@ import ProductoService from '../servicios/ProductoService.js'
 
 export default {
   name: "ListaProducto",
-
+  data(){
+    return { listaProductos:{}}
+  },
   created: async function () { 
     try {
       const rta = await ProductoService.getProductos()
-      this.datos.lista = rta.data;
-      console.log(rta);
+      this.listaProductos = rta.data
     } catch (error) {
-      console.log(error);
       alert("Se produjo un error");
     }
 

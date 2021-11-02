@@ -1,9 +1,12 @@
 const mongoose = require('mongoose')
 const express = require('express')
+const cors = require('cors')
 
 const app = express()
 
 const puerto = 3000
+
+app.use(cors())
 
 app.use((req,res,next)=>{
 
@@ -21,6 +24,8 @@ app.use((req,res,next)=>{
 const productos = require('./router/productos-router')
 
 app.use("/productos",productos)
+
+
 
 
 
