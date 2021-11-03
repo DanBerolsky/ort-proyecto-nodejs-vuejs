@@ -5,6 +5,7 @@ const producto = require('../models/productos')
 router.get('/', function(req,res) {//de app llamo get para ir a la ruta y hacer algo
     //cuando tiene el pedido ejecuta esto
     producto.find().then(data => { //muestro todos los datos de categoria 
+        console.log('back');
         res.send(data)
         })
     
@@ -19,7 +20,14 @@ router.get('/:id', function(req,res) {//de app llamo get para ir a la ruta y hac
 
 })
 
-router.post('/', function(req,res) {
+
+router.get('/crearProducto', function(req,res) {
+    console.log(hola);
+    res.send('post')
+
+})
+router.post('/crearProducto', function(req,res) {
+    console.log(hola);
     res.send('post')
 
 })

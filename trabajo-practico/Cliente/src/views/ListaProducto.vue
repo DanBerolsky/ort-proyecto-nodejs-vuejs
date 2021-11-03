@@ -3,7 +3,7 @@
     <div class="btn-agregarProd">
       <router-link to="/agregarProducto">
         <button type="button" class="btn btn-outline-success">
-          Agregar producto
+          Agregar
         </button>
       </router-link>
     </div>
@@ -18,13 +18,13 @@
         <div class="crud-btn">
           <router-link to="/modificarProducto">
             <button type="button" class="btn btn-outline-primary flex">
-              Modificar producto
+              Modificar
             </button>
           </router-link>
 
           <router-link to="/quitarProducto">
             <button type="button" class="btn btn-outline-danger flex">
-              Quitar producto
+              Quitar
             </button>
           </router-link>
         </div>
