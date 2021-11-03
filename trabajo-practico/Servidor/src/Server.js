@@ -25,9 +25,4 @@ const productos = require('./router/productos-router')
 
 app.use("/productos",productos)
 
-
-
-
-
-
-const server = app.listen(puerto,() => {console.log('conectado')})
+app.listen(puerto,() => {console.log('conectado')})
