@@ -50,6 +50,7 @@ export default {
     try {
       const rta = await ProductoService.get();
       this.listaProductos = rta.data;
+      
     } catch (error) {
       alert("Se produjo un error");
     }
@@ -59,6 +60,7 @@ export default {
       try {
         console.log(id);
         await ProductoService.delete(id);
+        window.location.href= window.location;
       } catch (err) {
         console.log(err.message);
         
