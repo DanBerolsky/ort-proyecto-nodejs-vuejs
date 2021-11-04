@@ -18,12 +18,13 @@
           v-model="precio"
         />
       </div>
-      <button type="submit" class="btn btn-dark">Submit</button>
+      <button @click.prevent="agregarProducto" class="btn btn-dark">Submit</button>
     </form>
   </div>
 </template>
 
 <script>
+import ProductoService from '../servicios/ProductoService.js'
 export default {
   name: "AgregarProducto",
   data() {
@@ -31,6 +32,16 @@ export default {
       nombre: "",
       precio: "",
     };
+  },
+  methods: {
+    async agregarProducto() {
+      
+      try {
+        await ProductoService.post(this);
+      } catch (error) {
+        console.log(error.message);
+      }
+    },
   },
 };
 </script>

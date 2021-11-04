@@ -23,12 +23,12 @@ const routes = [
     component: About
   },
   {
-    path: '/listaProducto',
+    path: '/productos',
     name: 'ListaProducto',
     component: ListaProducto
   },
   {
-    path: '/agregarProducto',
+    path: '/productos/agregarProducto',
     name: 'agregarProducto',
     component: AgregarProducto
   },
