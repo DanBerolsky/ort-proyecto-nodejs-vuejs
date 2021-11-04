@@ -38,6 +38,7 @@ export default {
       
       try {
         await ProductoService.post(this);
+        window.location.href= '/productos'
       } catch (error) {
         console.log(error.message);
       }

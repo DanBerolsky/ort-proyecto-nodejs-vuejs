@@ -59,6 +59,7 @@ export default {
       try {
         console.log(id);
         await ProductoService.delete(id);
+        window.location.href= window.location
       } catch (err) {
         console.log(err.message);
         
