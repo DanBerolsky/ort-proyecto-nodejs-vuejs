@@ -2,7 +2,14 @@
      
      <div>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light container  ">
+      <nav class="navbar navbar-expand-lg navbar-light header1 container  ">
+        <div> 
+          <img src="./assets/search2.svg">
+          <img src="./assets/black.png" alt="">
+          <img src="./assets/shopping-cart.svg" class="carrito" alt="">
+        </div>
+      </nav>
+      <nav class="navbar navbar-expand-lg navbar-light container  ">
         <div>
           <router-link class="navbar-brand" to="/">Home</router-link>
           <router-link class="navbar-brand" to="/about">About</router-link>
@@ -19,6 +26,7 @@
     
     .navbar{
         border-radius: 25px
+        
     }
     .navbar-brand {
     padding: 3px;
@@ -30,7 +38,7 @@
     white-space: nowrap;
 }
     .navbar-brand:hover{
-      background-color: #70dbfb69;
+      background-color: #a8a8a8;
       color: white;
       border-radius: 10px
     }
@@ -40,5 +48,12 @@
     justify-content: center !important;
     
 }
+   .header1{
+    background-color: #000000;
+  } 
+  .carrito{
+   margin-right: 5px !important
+;
+  }
     
 </style>
