@@ -11,21 +11,21 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active car" data-bs-interval="10000">
-          <img src=".D:\Users\TEKK\Desktop\ORT2-1\nt2\Trabajo-practico\ort-proyecto-nodejs\trabajo-practico\Cliente\public\productos\remera1.jpg" class="d-block w-100" alt="...">
+          <img src="../assets/remera2.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div>
         </div>
         <div class="carousel-item car" data-bs-interval="2000">
-          <img src=".D:\Users\TEKK\Desktop\ORT2-1\nt2\Trabajo-practico\ort-proyecto-nodejs\trabajo-practico\Cliente\public\productos\remera2.jpg" class="d-block w-100" alt="...">
+          <img src="../assets/remera1.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>Second slide label</h5>
             <p>Some representative placeholder content for the second slide.</p>
           </div>
         </div>
         <div class="carousel-item car">
-          <img src=".D:\Users\TEKK\Desktop\ORT2-1\nt2\Trabajo-practico\ort-proyecto-nodejs\trabajo-practico\Cliente\public\productos\remera3.png" class="d-block w-100" alt="...">
+          <img src="../assets/remera3.png" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>Third slide label</h5>
             <p>Some representative placeholder content for the third slide.</p>
@@ -48,7 +48,7 @@
     <div id="cards" class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
     <div class="card">
-      <img src=".D:\Users\TEKK\Desktop\ORT2-1\nt2\Trabajo-practico\ort-proyecto-nodejs\trabajo-practico\Cliente\public\productos\remera3.png" class="card-img-top" alt="...">
+      <img src="../assets/remera2.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -57,7 +57,7 @@
   </div>
   <div class="col">
     <div class="card">
-      <img src=".D:\Users\TEKK\Desktop\ORT2-1\nt2\Trabajo-practico\ort-proyecto-nodejs\trabajo-practico\Cliente\public\productos\remera2.jpg" class="card-img-top" alt="...">
+      <img src="../assets/remera3.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -66,7 +66,7 @@
   </div>
   <div class="col">
     <div class="card">
-      <img src=".D:\Users\TEKK\Desktop\ORT2-1\nt2\Trabajo-practico\ort-proyecto-nodejs\trabajo-practico\Cliente\public\productos\remera1.jpg" class="card-img-top" alt="...">
+      <img src="../assets/remera2.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
@@ -75,7 +75,7 @@
   </div>
   <div class="col">
     <div class="card">
-      <img src=".D:\Users\TEKK\Desktop\ORT2-1\nt2\Trabajo-practico\ort-proyecto-nodejs\trabajo-practico\Cliente\public\productos\remera1.jpg" class="card-img-top" alt="...">
+      <img src="../assets/remera1.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -95,18 +95,9 @@
 
 export default {
   name: "Home",
-  components: {},
-  computed: {
-      remera1() {
-        return require('../../public/productos/remera1.jpg');
-      },
-      remera2() {
-        return require('../../public/productos/remera2.jpg');
-      },remera3() {
-        return require('../../public/productos/remera3.png');
-      }
-  }
-};
+  
+}
+
 </script>
 
 <style>

@@ -34,5 +34,11 @@
       color: white;
       border-radius: 10px
     }
+  
+  .navbar-expand-lg {
+    flex-wrap: nowrap;
+    justify-content: center !important;
+    
+}
     
 </style>
