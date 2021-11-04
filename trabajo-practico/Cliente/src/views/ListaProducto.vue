@@ -2,9 +2,7 @@
   <div class="container">
     <div class="btn-agregarProd">
       <router-link to="/productos/agregarProducto">
-        <button type="button" class="btn btn-outline-success">
-          Agregar
-        </button>
+        <button type="button" class="btn btn-outline-success">Agregar</button>
       </router-link>
     </div>
     <ul class="list-group">
@@ -12,7 +10,6 @@
         class="list-group-item item"
         v-for="(item, index) in this.listaProductos"
         :key="index"
-        
       >
         {{ item.nombre }} ${{ item.precio }}
         <div class="crud-btn">
@@ -22,11 +19,13 @@
             </button>
           </router-link>
 
-          <router-link to="/quitarProducto">
-            <button type="button" class="btn btn-outline-danger flex">
-              Quitar
-            </button>
-          </router-link>
+          <button
+            type="button"
+            @click="quitar(item._id)"
+            class="btn btn-outline-danger flex"
+          >
+            Quitar
+          </button>
         </div>
       </li>
     </ul>
@@ -40,26 +39,35 @@
 
 <script>
 import { mapState } from "vuex";
-import ProductoService from '../servicios/ProductoService.js'
+import ProductoService from "../servicios/ProductoService.js";
 
 export default {
   name: "ListaProducto",
-  data(){
-    return { listaProductos:{}}
+  data() {
+    return { listaProductos: {} };
   },
-  created: async function () { 
+  created: async function () {
     try {
-      const rta = await ProductoService.get()
-      this.listaProductos = rta.data
+      const rta = await ProductoService.get();
+      this.listaProductos = rta.data;
     } catch (error) {
       alert("Se produjo un error");
     }
-
+  },
+  methods: {
+    async quitar(id) {
+      try {
+        console.log(id);
+        await ProductoService.delete(id);
+      } catch (err) {
+        console.log(err.message);
+        
+      }
+    },
   },
 
   computed: {
     ...mapState(["productos"]),
-
   },
 };
 </script>
