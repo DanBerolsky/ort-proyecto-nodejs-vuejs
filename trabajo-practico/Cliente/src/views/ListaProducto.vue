@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="btn-agregarProd">
-      <router-link to="/agregarProducto">
+      <router-link to="/productos/agregarProducto">
         <button type="button" class="btn btn-outline-success">
           Agregar
         </button>
@@ -49,7 +49,7 @@ export default {
   },
   created: async function () { 
     try {
-      const rta = await ProductoService.getProductos()
+      const rta = await ProductoService.get()
       this.listaProductos = rta.data
     } catch (error) {
       alert("Se produjo un error");

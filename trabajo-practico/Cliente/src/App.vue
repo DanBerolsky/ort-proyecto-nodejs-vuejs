@@ -7,7 +7,7 @@
           <router-link class="navbar-brand" to="/">Home</router-link>
           <router-link class="navbar-brand" to="/about">About</router-link>
           <router-link class="navbar-brand" to="/Sistema">Sistema</router-link>
-          <router-link class="navbar-brand" to="/ListaProducto">ListaProductos</router-link>
+          <router-link class="navbar-brand" to="/productos">ListaProductos</router-link>
         </div>
       </nav>
       <router-view/>

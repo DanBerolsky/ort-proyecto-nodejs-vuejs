@@ -7,6 +7,7 @@ const app = express()
 const puerto = 3000
 
 app.use(cors())
+app.use(express.json())
 
 app.use((req,res,next)=>{
 
