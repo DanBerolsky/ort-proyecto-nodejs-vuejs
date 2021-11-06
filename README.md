@@ -1,37 +1,36 @@
-# ort-proyecto-nodejs-vuejs
 
-https://aulavirtual.instituto.ort.edu.ar/pluginfile.php/94641/mod_resource/content/1/PNT2-TPF.pdf
+<h1 align="center"> ort-proyecto-nodejs-vuejs </h1>
+    
+## Links
+- [pdf] https://aulavirtual.instituto.ort.edu.ar/pluginfile.php/94641/mod_resource/content/1/PNT2-TPF.pdf
+- [Repo] https://github.com/DanBerolsky/ort-proyecto-nodejs
+  
+    
+## instalacion 
 
-#####################################
-#####################################
+Front:
+ -    vueCli          --> npm install -g @vue/cli
+ -    vue v3          --> vue create ejercicio2  
+ -    vue router v4   --> npm install vue-router@4 
+      - vue add router
+ -    vuex v4         --> npm install vuex@next --save
 
-# instalacion 
-
-front:
-    vueCli        --> npm install -g @vue/cli
-    vue3          --> vue create ejercicio2  
-    vue router4   --> npm install vue-router@4 
-        -> vue add router
-    vuex version4 --> npm install vuex@next --save
-
-servidor:
-    express --> npm i express
-    mongoose --> npm i mongoose
-    nodemon --> npm install -g nodemon / nodemon archivo.js
+Servidor:
+  - express --> npm i express
+  - mongoose --> npm i mongoose
+  - nodemon --> npm install -g nodemon 
+    - nodemon archivo.js
 
 
-# funcionamiento
-vue js → axios → express 
+## funcionamiento
+    vue js → axios → express 
 
-modelo -> servidor(bdd) -> rutas -> metodos
+    modelo -> servidor(bdd) -> rutas -> metodos
 
-###################################
-###################################
+## Comandos:
 
-# Comandos:
-
--servidor(Backend): node server
--Vuejs(front): npm run server
+- Server(Backend): node server
+- Vuejs(front): npm run server
 
 
 
