@@ -1,11 +1,16 @@
-const mongoose = require('mongoose')//requiero paquete instalado (npm i mongoose)
+///
+///
+///
+//ESTO SE TENDRIA QUE BORRAR MEPA PORQ YA LO HACE SERVER
+///
+///
+///
 
-const producto = require('./models/productos')//me traigo el modelo de la carpeta exportada
 
-/*
-moongoose.connection.on('error', err => {
-    console.log(err)
-})*/
+const mongoose = require('mongoose')
+//modelos
+const producto = require('./models/productos')
+
 
 const url = 'mongodb://localhost:27017/ort-tp2'
 
@@ -17,16 +22,13 @@ mongoose
 
     .then(conn => { //una vez conectada
      
-      producto.find().then(res => { //muestro todos los datos de categoria 
+      producto.find().then(res => { //muestro todos los datos de categoria ------> esto se podria sacar??? xq hace esto en la conexion de bdd
         console.log(res)
         })
         
     })
 
-    .catch(err => console.log(err))//si hay un error pasa esot
-
-//nota: todas las operaciones son promesas
-
+    .catch(err => console.log(err))
 
 
 /*
@@ -41,9 +43,4 @@ app.use('/usuario', (req, res, next) => {
     res.setHeader('Content-Type', 'application/xhtml')
     next()
 })
-
-
-
-//la aplicacion escucha comunicacion a traves del puerto 444
-app.listen(4444)*/
-
+*/

@@ -25,7 +25,7 @@ Servidor:
 ## funcionamiento
     vue js → axios → express 
 
-    modelo -> servidor(bdd) -> rutas -> metodos
+    modelo -> server(bdd) -> rutas -> metodos
 
 ## Comandos:
 

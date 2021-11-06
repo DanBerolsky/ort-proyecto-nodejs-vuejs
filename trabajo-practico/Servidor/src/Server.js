@@ -4,11 +4,10 @@ const cors = require('cors')
 
 const app = express()
 
-const puerto = 3000
-
 app.use(cors())
 app.use(express.json())
 
+//bdd
 app.use((req,res,next)=>{
 
     const url = 'mongodb://localhost:27017/ort-tp2'
@@ -22,8 +21,13 @@ app.use((req,res,next)=>{
 
 })
 
+//routes
 const productos = require('./router/productos-router')
+const usuarios = require('./router/usuarios-router')
 
 app.use("/productos",productos)
+app.use("/usuarios",usuarios)
 
+//server
+const puerto = 3000
 app.listen(puerto,() => {console.log('conectado')})
