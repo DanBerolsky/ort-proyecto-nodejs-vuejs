@@ -25,8 +25,20 @@ router.get('/:id', function (req, res) {
 })
 
 router.post('/', async function (req, res) {
-    await producto.create({ nombre: req.body.nombre, password: req.body.password });
-    res.send('post')
+    
+    const usuario = req.body  
+    const existe = usuarios.find((usu) => {
+        return usu.nombre == usuario.nombre
+    })
+
+    if(!existe) {
+        console.log('accion exitosa - crearusuario');
+        await producto.create({ nombre: req.body.nombre, password: req.body.password });    
+    } else {
+        //status 409 que hay un conflicto en el codigo
+        res.status(409).send('"Error, ya existe el usuario"')
+    }
+   
 })
 
 router.put('/:id', function (req, res) {

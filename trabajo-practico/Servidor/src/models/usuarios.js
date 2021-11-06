@@ -8,7 +8,7 @@ const Usuario = new Schema({ //defino el schema
        required: true
     },
     password:{
-        type: Number,
+        type: String,
         required: true
     }, 
 }, {
