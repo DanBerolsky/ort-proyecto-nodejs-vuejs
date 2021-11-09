@@ -1,26 +1,45 @@
 <template>
-  <div class="container">
-    <form method="POST" action="">
-      <div class="mb-3">
-        <label class="form-label">Nombre</label>
-        <input
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          v-model="nombre"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Precio</label>
-        <input
-          class="form-control"
-          id="exampleInputPassword1"
-          v-model="precio"
-        />
-      </div>
-      <button @click.prevent="agregarProducto" class="btn btn-dark">Submit</button>
-    </form>
+  
+  <div>
+    <hr />
+    <h2>Agregar Producto</h2>
+    <hr />
+
+    <div class="f-cont">
+      
+        <form method="POST" action="">
+          <div class="mb-3">
+            <label for="Nombre del producto" class="form-label"
+              >Nombre del producto</label
+            >
+            <input 
+              type="text" 
+              class="form-control" 
+              id="nombre"
+              v-model="nombre" 
+              />
+            <div id="nombre" class="form-text">
+              Ingresar nombre del producto aqui
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="Precio" class="form-label">Precio ($)</label>
+            <input
+             type="number"
+              class="form-control"
+               id="precio"
+               v-model="precio"
+                />
+          </div>
+
+          <button @click.prevent="agregarProducto" class="btn btn-dark">Submit</button>
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+        </form>
+     
+    </div>
   </div>
+  
+
 </template>
 
 <script>
