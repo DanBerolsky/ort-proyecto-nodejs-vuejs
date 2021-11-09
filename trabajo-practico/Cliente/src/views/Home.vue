@@ -27,28 +27,29 @@
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active car" data-bs-interval="10000">
           <img src="../assets/remera2.jpg" class="" alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
+          <div class="carousel-caption d-none d-md-block"></div>
         </div>
         <div class="carousel-item car" data-bs-interval="2000">
           <img src="../assets/remera1.jpg" class="" alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
+          <div class="carousel-caption d-none d-md-block"></div>
         </div>
         <div class="carousel-item car">
           <img src="../assets/remera3.png" class="" alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
+          <div class="carousel-caption d-none d-md-block"></div>
+        </div>
+        <div class="carousel-item car">
+          <img src="../assets/remera4.webp" class="" alt="..." />
+          <div class="carousel-caption d-none d-md-block"></div>
         </div>
       </div>
       <button
@@ -78,9 +79,12 @@
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+            NEW / +3 COLORES 
+            <br>
+            CAMISA ESTAMPADO SKATER
+
+            <br>
+            7.990,00 ARS
             </p>
           </div>
         </div>
@@ -91,21 +95,26 @@
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+            NEW / +3 COLORES 
+            <br>
+            JEANS SLIM STRAIGHT FIT
+            <br>
+            14.990,00 ARS
             </p>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card">
-          <img src="../assets/remera2.jpg" class="card-img-top" alt="..." />
+          <img src="../assets/remera4.webp" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content.
+              NEW / +3 COLORES 
+            <br>
+            GORRA COMBINADA PARCHE
+            <br>
+            4.990,00 ARS
             </p>
           </div>
         </div>
@@ -116,9 +125,11 @@
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+            NEW / +3 COLORES 
+            <br>
+            CAZADORA DENIM BÁSICA
+            <br>
+            8.990,00 ARS
             </p>
           </div>
         </div>

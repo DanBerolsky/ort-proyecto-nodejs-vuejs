@@ -4,9 +4,32 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
       <nav class="navbar navbar-expand-lg navbar-light header1 container  ">
         <div> 
+          <!--
           <img src="./assets/search2.svg">
           <img src="./assets/black.png" alt="">
           <img src="./assets/shopping-cart.svg" class="carrito" alt="">
+          <p class="text-white">INICIAR SESION</p>
+          -->
+          <button class="navbar-toggler">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse">
+            <ul>
+              <li class="nav-link">
+                <img src="./assets/search2.svg">
+              </li>
+            </ul>
+            <ul>
+              <li class="nav-link">
+               <img src="./assets/black.png" alt="">
+              </li>
+            </ul>
+            <ul>
+              <li class="nav-link">
+                 <img src="./assets/shopping-cart.svg" class="carrito" alt="">
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
       <nav class="navbar navbar-expand-lg navbar-light container  ">
