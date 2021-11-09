@@ -5,31 +5,34 @@
         <button type="button" class="btn btn-outline-success">Agregar</button>
       </router-link>
     </div>
-    <ul class="list-group">
-      <li
-        class="list-group-item item"
-        v-for="(item, index) in this.listaProductos"
-        :key="index"
-      >
-        {{ item.nombre }} ${{ item.precio }}
-        <div class="crud-btn">
-          <router-link to="/modificarProducto">
-            <button type="button" class="btn btn-outline-primary flex">
-              Modificar
-            </button>
-          </router-link>
 
-          <button
-            type="button"
-            @click="quitar(item._id)"
-            class="btn btn-outline-danger flex"
-          >
-            Quitar
-          </button>
-        </div>
-      </li>
-    </ul>
-    <router-view />
+    <div class="f-cont">
+      <ul class="list-group">
+        <li
+          class="list-group-item item"
+          v-for="(item, index) in this.listaProductos"
+          :key="index"
+        >
+          {{ item.nombre }} ${{ item.precio }}
+          <div class="crud-btn">
+            <router-link to="/modificarProducto">
+              <button type="button" class="btn btn-outline-primary flex">
+                Modificar
+              </button>
+            </router-link>
+
+            <button
+              type="button"
+              @click="quitar(item._id)"
+              class="btn btn-outline-danger flex"
+            >
+              Quitar
+            </button>
+          </div>
+        </li>
+      </ul>
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -50,7 +53,6 @@ export default {
     try {
       const rta = await ProductoService.get();
       this.listaProductos = rta.data;
-      
     } catch (error) {
       alert("Se produjo un error");
     }
@@ -60,10 +62,9 @@ export default {
       try {
         console.log(id);
         await ProductoService.delete(id);
-        window.location.href= window.location;
+        window.location.href = window.location;
       } catch (err) {
         console.log(err.message);
-        
       }
     },
   },
@@ -107,5 +108,17 @@ export default {
   display: flex;
   justify-content: end;
   margin-top: 50px;
+}
+.f-cont{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  margin: 0px !important;
+
+}
+.f-cont ul{
+  
+
 }
 </style>
