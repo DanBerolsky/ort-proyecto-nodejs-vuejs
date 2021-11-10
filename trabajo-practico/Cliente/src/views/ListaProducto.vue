@@ -2,7 +2,7 @@
   <div>
     <div class="btn-agregarProd">
       <router-link to="/productos/agregarProducto">
-        <button type="button" class="btn btn-outline-success">Agregar</button>
+        <button type="button" class="btn btn-outline-success agregar">Agregar</button>
       </router-link>
     </div>
 
@@ -15,7 +15,7 @@
         >
           {{ item.nombre }} ${{ item.precio }}
           <div class="crud-btn">
-            <router-link to="/modificarProducto">
+            <router-link to="/modificarProducto/:{{item._id}}">
               <button type="button" class="btn btn-outline-primary mod">
                 Modificar
               </button>
@@ -41,7 +41,6 @@
 
 
 <script>
-import { mapState } from "vuex";
 import ProductoService from "../servicios/ProductoService.js";
 
 export default {
@@ -62,16 +61,14 @@ export default {
       try {
         console.log(id);
         await ProductoService.delete(id);
-        window.location.href = window.location;
+        
       } catch (err) {
         console.log(err.message);
       }
     },
   },
 
-  computed: {
-    ...mapState(["productos"])
-  },
+  
 };
 </script>
 
@@ -95,8 +92,14 @@ export default {
   display: flex;
   justify-content: end;
   margin-top: 50px;
+  margin-bottom: 100px;
   
+  align-content: center;  
+  
+  padding-right: 320px;
+
 }
+
 
 .contenedor{
   display: flex;
