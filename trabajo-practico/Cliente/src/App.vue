@@ -18,44 +18,80 @@
      </div>
     </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-light container mar">
-      <div>
-        <router-link class="navbar-brand" to="/">Home</router-link>
-        <router-link class="navbar-brand" to="/about">About</router-link>
-        <router-link class="navbar-brand" to="/productos">ListaProductos</router-link
-        >
-      </div>
+    <nav class="nav navbar-light container mar">
+      <div><router-link class="navbar-brand" to="/">Home</router-link>
+        </div>
+        <div><router-link class="navbar-brand" to="/about">About</router-link>
+        </div>
+        <div><router-link class="navbar-brand" to="/productos">ListaProductos</router-link
+        ></div>
     </nav>
     <router-view />
+
   </div>
+  
 </template>
 
 <style >
+
+.carousel {
+    position: relative;
+    /* left: auto !important; */
+    /* right: 0 !important; */
+    max-width: 1000px;
+    left: 23%;
+}
+.footer{
+  display: flex;
+  position: relative;
+  margin-top: 50px;
+  top: auto !important;
+  bottom: 0 !important;
+  align-content: center;
+  justify-content: center;
+  border-top: 5px rgba(0, 0, 0, 0.144);
+
+}
+
+.navbar-footer {
+  /* padding-top: 0px; */
+  /* padding-bottom: 0px; */
+  font-size: 1.70rem !important;
+  padding: 30px;
+  
+}
+
+
 .mar {
   margin-top: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 100px !important;
   border-radius: 25px;
+}
+
+.nav{
+  justify-content: space-around;
+  
+  
 }
 
 .navbar-brand {
   /* padding-top: 0px; */
   /* padding-bottom: 0px; */
-  margin-right: 2rem;
-  font-size: 1.25rem;
-  text-decoration: none;
-  white-space: nowrap;
+  font-size: 1.70rem !important;
   padding: 30px;
+  
 }
 .navbar-brand:hover {
   background-color: #a8a8a821;
   color: white;
-  padding: -10px;
+  
   border-radius: 20px;
 }
 
 .navbar-expand-lg {
   flex-wrap: nowrap;
   justify-content: center !important;
+  
 }
 .header1 {
   background-color: #000000;

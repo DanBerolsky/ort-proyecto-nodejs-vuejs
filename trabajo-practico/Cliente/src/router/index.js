@@ -34,7 +34,7 @@ const routes = [
     component: AgregarProducto
   },
   {
-    path: '/modificarProducto',
+    path: '/modificarProducto/:id',
     name: 'modificarProducto',
     component: ModificarProducto
   },

@@ -33,6 +33,10 @@ router.post('/', async function (req, res) {
 })
 
 router.put('/:id', function (req, res) {
+    
+    const id = req.params.id
+    console.log("put")
+    producto.findOneAndUpdate({ _id: id },{ nombre: req.body.nombre, precio: req.body.precio });
     res.send('put')
 })
 

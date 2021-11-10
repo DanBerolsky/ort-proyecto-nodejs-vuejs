@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <h2>Home</h2>
+  
     <div
       id="carouselExampleDark"
       class="carousel carousel-dark slide car"
@@ -73,67 +73,27 @@
     </div>
 
     <div id="cards" class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
+      <div class="col" 
+        v-for="(item, index) in this.listaProductos"
+          :key="index">
         <div class="card">
-          <img src="../assets/remera2.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-            NEW / +3 COLORES 
-            <br>
-            CAMISA ESTAMPADO SKATER
-
-            <br>
-            7.990,00 ARS
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="../assets/remera3.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-            NEW / +3 COLORES 
-            <br>
-            JEANS SLIM STRAIGHT FIT
-            <br>
-            14.990,00 ARS
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="../assets/remera4.webp" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              NEW / +3 COLORES 
-            <br>
-            GORRA COMBINADA PARCHE
-            <br>
-            4.990,00 ARS
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
+          
+          
           <img src="../assets/remera1.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-            NEW / +3 COLORES 
+            <p class="card-text"> 
+            {{item.nombre}}
+
             <br>
-            CAZADORA DENIM BÁSICA
-            <br>
-            8.990,00 ARS
+            {{item.precio}} ARS
             </p>
+            <button type="button" class="btn btn-danger">Comprar</button>
           </div>
         </div>
       </div>
+      
+
     </div>
   </div>
 </template>
@@ -141,8 +101,29 @@
 
 
 <script>
+
+import ProductoService from "../servicios/ProductoService.js";
+
+
 export default {
   name: "Home",
+  data() {
+    return { listaProductos: {} };
+  },
+  created: async function () {
+    try {
+      const rta = await ProductoService.get();
+      this.listaProductos = rta.data;
+    } catch (error) {
+      alert("Se produjo un error");
+    }
+    
+  },methods:{
+    fotoRandom(){
+      
+      
+    }
+  }
 };
 </script>
 
@@ -151,21 +132,39 @@ export default {
   width: 1800px;
   height: 500px;
 }
+
 #cards {
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  top: 2000px;
-  flex-wrap: wrap-reverse !important;
-  width: 1000px;
+  flex-wrap: wrap;
+  width: 800px;
   text-align-last: center;
 }
 
 .card-img,
 .card-img-bottom,
 .card-img-top {
-  height: 500px;
+  height: 350px;
   align-self: center;
-  width: 500px;
+  width: 300px;
 }
+.carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: 50% !important;
+    bottom: auto !important;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
+
 </style>
