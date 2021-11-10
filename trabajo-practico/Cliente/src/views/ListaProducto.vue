@@ -1,13 +1,13 @@
 <template>
-  <div class="container">
+  <div>
     <div class="btn-agregarProd">
       <router-link to="/productos/agregarProducto">
         <button type="button" class="btn btn-outline-success">Agregar</button>
       </router-link>
     </div>
 
-    <div class="f-cont">
-      <ul class="list-group">
+    <div class="contenedor">
+      <ul>
         <li
           class="list-group-item item"
           v-for="(item, index) in this.listaProductos"
@@ -16,7 +16,7 @@
           {{ item.nombre }} ${{ item.precio }}
           <div class="crud-btn">
             <router-link to="/modificarProducto">
-              <button type="button" class="btn btn-outline-primary flex">
+              <button type="button" class="btn btn-outline-primary mod">
                 Modificar
               </button>
             </router-link>
@@ -24,7 +24,7 @@
             <button
               type="button"
               @click="quitar(item._id)"
-              class="btn btn-outline-danger flex"
+              class="btn btn-outline-danger quit"
             >
               Quitar
             </button>
@@ -70,55 +70,51 @@ export default {
   },
 
   computed: {
-    ...mapState(["productos"]),
+    ...mapState(["productos"])
   },
 };
 </script>
 
 <style>
-.crud-btn {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: end;
-  margin: auto;
-}
 
-.flex {
-  margin: 10px;
-}
+
 
 .list-group-item {
   /* position: relative; */
   display: flex !important;
-  display: inline-flex !important;
-  padding: 0.5rem 1rem;
+  flex-direction: row;
   color: #212529;
-  text-decoration: none;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  flex-wrap: wrap !important;
-  align-content: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  
 }
 
-.list-group {
-  margin-top: 100px;
-}
+
 
 .btn-agregarProd {
   display: flex;
   justify-content: end;
   margin-top: 50px;
+  
 }
-.f-cont{
-  position: relative;
+
+.contenedor{
   display: flex;
   justify-content: center;
-  height: auto;
-  margin: 0px !important;
-
 }
-.f-cont ul{
-  
 
+ul{
+  padding: 0px !important;
+  flex-basis: 1000px;
 }
+button {
+    width: 100px;
+    height: 55px;
+    
+}
+.mod{
+  margin-right: 20px;
+}
+
 </style>
+

@@ -21,9 +21,9 @@
             <input type="number" class="form-control" id="precio" />
           </div>
 
-          <button type="button" class="btn btn-primary">Modificar</button>
-          <button type="button" class="btn btn-secondary">Cancelar</button>
-        </form>
+          <button type="button" class="btn btn-primary button">Modificar</button>
+          <button type="button" class="btn btn-secondary button">Cancelar</button>
+        </form>     
      
     </div>
   </div>
@@ -52,7 +52,7 @@ h2 {
      flex-basis: 700px;
      
 }
-button{
+.button{
     width: 100px;
     height: 55px;
     margin-top: 40px !important;
