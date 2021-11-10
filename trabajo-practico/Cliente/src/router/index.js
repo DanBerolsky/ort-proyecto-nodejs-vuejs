@@ -5,6 +5,8 @@ import About from '../views/About.vue'
 import ListaProducto from '../views/ListaProducto.vue'
 import AgregarProducto from '../views/AgregarProducto.vue'
 import ModificarProducto from '../views/ModificarProducto.vue'
+import CrearCuenta from '../views/CrearCuenta.vue'
+
 
 const routes = [
   {
@@ -35,6 +37,11 @@ const routes = [
     path: '/modificarProducto',
     name: 'modificarProducto',
     component: ModificarProducto
+  },
+  {
+    path: '/CrearCuenta',
+    name: 'CrearCuenta',
+    component: CrearCuenta
   }
 
 ]

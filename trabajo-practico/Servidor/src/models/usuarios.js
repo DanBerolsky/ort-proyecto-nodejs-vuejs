@@ -10,7 +10,11 @@ const Usuario = new Schema({ //defino el schema
     password:{
         type: String,
         required: true
-    }, 
+    },
+    email:{
+        type: String,
+        required: true
+    } 
 }, {
     colecction: 'usuarios'
 })

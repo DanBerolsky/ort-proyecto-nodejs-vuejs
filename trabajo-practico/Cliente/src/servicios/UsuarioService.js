@@ -19,14 +19,16 @@ export default {
   getById(id) {
     return apiClient.get(url + '/' +  id)
   },
-  post(producto) {
-    return apiClient.post(url + '/', producto)
+  post(usuario) {
+    console.log('front');
+    return apiClient.post(url + '/', usuario)
+    
   },
   delete(id) {
     return apiClient.delete(url + '/' + id)
   },
-  put(producto) {
-      console.log(producto)
-      return (url + '/' + producto.id , producto)
+  put(usuario) {
+      console.log(usuario)
+      return (url + '/' + usuario.id , usuario)
   },
 }
