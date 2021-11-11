@@ -33,12 +33,9 @@ router.post('/', async function (req, res) {
 })
 
 router.put('/:id', async function (req, res) {
-    
     const id = req.params.id
-    console.log("put")
     await producto.findByIdAndUpdate({ _id: id },{ nombre: req.body.nombre, precio: req.body.precio });
-
-
+    console.log('accion exitosa - modificado');
     res.send('put')
 })
 

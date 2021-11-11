@@ -21,8 +21,7 @@ export default {
   },
   post(usuario) {
     console.log('front');
-    return apiClient.post(url + '/', usuario)
-    
+    return apiClient.post(url + '/', usuario) 
   },
   delete(id) {
     return apiClient.delete(url + '/' + id)
