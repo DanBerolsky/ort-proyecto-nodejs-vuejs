@@ -89,29 +89,6 @@ export default {
     },
   },
 };
-/*
-import ProductoService from '../servicios/ProductoService.js'
-export default {
-  name: "AgregarProducto",
-  data() {
-    return {
-      nombre: "",
-      precio: "",
-    };
-  },
-  methods: {
-    async agregarProducto() {
-      
-      try {
-        await ProductoService.post(this);
-        window.location.href= '/productos'
-      } catch (error) {
-        console.log(error.message);
-      }
-    },
-  },
-};
-*/
 </script>
 
 <style>

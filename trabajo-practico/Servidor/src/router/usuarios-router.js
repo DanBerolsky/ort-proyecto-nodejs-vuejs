@@ -12,6 +12,15 @@ router.get('/', function (req, res) {
         })
 })
 
+//login
+router.get('/login', function (req, res) {
+    
+    
+
+})
+
+
+
 router.get('/:id', function (req, res) {
     const id = req.params.id
     usuarios.findById(id).then(data => {
@@ -25,29 +34,24 @@ router.get('/:id', function (req, res) {
 })
 
 router.post('/', async function (req, res) {
-  /*   const usuario = req.body  
-    const existe = usuarios.find({ nombre: usuario.nombre}).exec();
-    console.log(usuario);
-    if(!existe) {
+    const usuario = req.body
+    const usuEncontrado = await usuarios.find({ email: usuario.email }).limit(1);//tre el usuario
+
+    if(usuEncontrado.length == 0) {//si no lo encuentra es un arrayvacio
         console.log('accion exitosa - crearusuario');
         await usuarios.create({ nombre: req.body.nombre, password: req.body.password, email: req.body.email });
-        res.send('post')    
+        res.send('post')
     } else {
-        //status 409 que hay un conflicto en el codigo
-        //res.status(409).send('"Error, ya existe el usuario"')
         console.log('Error, ya existe el usuario');
-    } */
-    await usuarios.create({ nombre: req.body.nombre, password: req.body.password, email: req.body.email });
-    res.send('post')
 
-    //ESTO LO TRAJO TADE BRO
-    // Find the customer whose name comes first in alphabetical order, in
-    // this case 'A'. Use `{ name: -1 }` to sort by name in reverse order.
-    //const res = await Customer.find({}).sort({ name: 1 }).limit(1);
+    }
 
 })
 
-router.put('/:id', function (req, res) {
+router.put('/:id', async function (req, res) {
+    const id = req.params.id
+    await usuarios.findByIdAndUpdate({ _id: id },{ nombre: req.body.nombre, password: req.body.password, email: req.body.email });
+    console.log('accion exitosa - modificado');
     res.send('put')
 })
 
