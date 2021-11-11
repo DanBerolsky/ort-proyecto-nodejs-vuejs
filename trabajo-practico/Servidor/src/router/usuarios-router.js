@@ -13,9 +13,21 @@ router.get('/', function (req, res) {
 })
 
 //login
-router.get('/login', function (req, res) {
+router.post('/login', async function (req, res) {
     
+    const usuario = req.body
     
+    const usuEncontrado = await usuarios.find({ email: usuario.email, password: usuario.password }).limit(1);//tre el usuario
+
+    if(usuEncontrado.length != 0) {
+        console.log('accion exitosa - InicioSesion');
+
+        //res.send('post')
+
+    } else {
+
+        console.log('Error, datos mal ingresados');
+    }
 
 })
 

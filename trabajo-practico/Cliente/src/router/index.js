@@ -6,6 +6,7 @@ import ListaProducto from '../views/ListaProducto.vue'
 import AgregarProducto from '../views/AgregarProducto.vue'
 import ModificarProducto from '../views/ModificarProducto.vue'
 import CrearCuenta from '../views/CrearCuenta.vue'
+import IniciarSesion from '../views/IniciarSesion.vue'
 
 
 const routes = [
@@ -42,6 +43,11 @@ const routes = [
     path: '/CrearCuenta',
     name: 'CrearCuenta',
     component: CrearCuenta
+  },
+  {
+    path: '/IniciarSesion',
+    name: 'IniciarSesion',
+    component: IniciarSesion
   }
 
 ]

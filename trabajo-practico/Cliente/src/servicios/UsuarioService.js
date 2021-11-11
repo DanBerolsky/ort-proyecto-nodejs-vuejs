@@ -13,15 +13,16 @@ const url = '/usuarios'
 
 export default {
   get() {
-    console.log('axios');
     return apiClient.get(url)
   },
   getById(id) {
     return apiClient.get(url + '/' +  id)
   },
   post(usuario) {
-    console.log('front');
     return apiClient.post(url + '/', usuario) 
+  },
+  postLogin(usuario) {
+    return apiClient.post(url + '/login', usuario) 
   },
   delete(id) {
     return apiClient.delete(url + '/' + id)
