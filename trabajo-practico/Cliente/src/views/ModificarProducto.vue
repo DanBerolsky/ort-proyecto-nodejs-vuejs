@@ -6,7 +6,7 @@
 
     <div class="f-cont">
       
-        <form>
+        <form method="PUT">
           <div class="mb-3">
             <label for="Nombre del producto" class="form-label"
               >Nombre del producto</label
@@ -42,20 +42,31 @@ export default {
       precio: "",
     };
   },
-   methods: {
+   
+    created: async function () {
+    try {
+      const rta = await ProductoService.getById(this.$route.params.id);
+      this.nombre = rta.data.nombre;
+      this.precio = rta.data.precio;
+    } catch (error) {
+      alert("Se produjo un error");
+    }
+  },
+   
+  methods: {
     async modificar(id) {
       
       try {
-        console.log(id);
         const producto = {_id:id ,nombre : this.nombre, precio: this.precio}
-        await ProductoService.put(producto,id);
-        
+        await ProductoService.put(id,producto); 
+        window.location.href= '/productos'       
       } catch (err) {
         console.log(err.message);
         console.log('catch')
       }
-    }
-   }
+    },
+  }
+
 };
 </script>
 

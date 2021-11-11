@@ -15,7 +15,8 @@
         >
           {{ item.nombre }} ${{ item.precio }}
           <div class="crud-btn">
-            <router-link to="/modificarProducto/:{{item._id}}">
+            
+            <router-link :to="{ name: 'modificarProducto', params: { id: item._id }}" >
               <button type="button" class="btn btn-outline-primary mod">
                 Modificar
               </button>
@@ -61,7 +62,8 @@ export default {
       try {
         console.log(id);
         await ProductoService.delete(id);
-        
+        window.location.href= window.location
+
       } catch (err) {
         console.log(err.message);
       }
