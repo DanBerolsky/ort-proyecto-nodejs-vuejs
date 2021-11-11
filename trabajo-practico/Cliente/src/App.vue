@@ -6,16 +6,28 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <nav class="navbar navbar-expand-lg header1">
-      <div>
+    <nav class="navbar navbar-expand-lg header1 flex-con">
+      <div class="div-buscar">
         <img src="./assets/search2.svg" class="buscar" />
-        <img src="./assets/black.png" alt="" class="black" />
-        <img src="./assets/shopping-cart.svg" class="carrito" alt="" />
+      </div>
+      <div class="div-black">
+        <img src="./assets/black.png" alt=""  class="black"/>
+      </div>
+        
+      <div class="div-cart">
+          <img src="./assets/shopping-cart.svg" class="carrito" alt="" />
+      </div>
+
+      <div class="sesion">
         <router-link class="crearCuenta text-white" to="/crearCuenta">
           <p>CREAR CUENTA</p>
         </router-link>
-        <p class="iniciarSesion text-white">INICIAR SESION</p>
-     </div>
+        <router-link class="iniciarSesion text-white" to="/iniciarSesion">
+          <p>INICIAR SESION</p>
+        </router-link>
+      </div>
+        
+     
     </nav>
 
     <nav class="nav navbar-light container mar">
@@ -34,6 +46,19 @@
 
 <style >
 
+.flex-con{
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center;
+}
+
+.flex-con div{
+  flex-basis: 10px;
+  min-width: 100px;
+ 
+
+}
+
 .carousel {
     position: relative;
     /* left: auto !important; */
@@ -41,25 +66,8 @@
     max-width: 1000px;
     left: 23%;
 }
-.footer{
-  display: flex;
-  position: relative;
-  margin-top: 50px;
-  top: auto !important;
-  bottom: 0 !important;
-  align-content: center;
-  justify-content: center;
-  border-top: 5px rgba(0, 0, 0, 0.144);
 
-}
 
-.navbar-footer {
-  /* padding-top: 0px; */
-  /* padding-bottom: 0px; */
-  font-size: 1.70rem !important;
-  padding: 30px;
-  
-}
 
 
 .mar {
@@ -69,7 +77,7 @@
 }
 
 .nav{
-  justify-content: space-around;
+  justify-content: space-around ;
   
   
 }
@@ -90,35 +98,61 @@
 
 .navbar-expand-lg {
   flex-wrap: nowrap;
-  justify-content: center !important;
+  
   
 }
 .header1 {
   background-color: #000000;
 }
-.carrito {
-  position: absolute;
-  right: 4rem !important;
-  top: 4rem !important;
+.div-cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  order : 4;
+  max-width: 100px;
+  min-width: 150px;
+  justify-content: center;
+  
 }
-.buscar{
-  position: absolute;
-  left: 4rem !important;
-  top: 4rem !important;
+.div-buscar{
+  position: relative;
+  display: flex;
+  order:0;
+  width: 200px;
+  max-width: 200px;
+  min-width: 150px;
+  justify-content: center;
+  flex-grow: 2;
 }
-.iniciarSesion{
-  position: absolute;
-  right: 8rem !important;
-  top: 5rem !important;
-}
-.crearCuenta{
-  position: absolute;
-  right: 16rem !important;
-  top: 5rem !important; 
-}
-.black{
-  top: 4rem !important;
+
+.sesion{
+  
+  flex-basis: 100px;
+  flex-grow: 1;
+  order:3
+
   
 }
 
+.div-black{
+  order: 1;
+  flex-grow: 6;
+  display: flex;
+  justify-content: center;  
+}
+.black{
+  order: 1;
+  max-width: fit-content;
+  
+}
+.iniciarSesion{
+  position: relative;
+  text-align: center;
+  
+}
+.crearCuenta{
+  position: relative;
+  text-align: center;
+ 
+}
 </style>
