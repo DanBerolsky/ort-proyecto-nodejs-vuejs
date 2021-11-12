@@ -7,7 +7,9 @@ import AgregarProducto from '../views/AgregarProducto.vue'
 import ModificarProducto from '../views/ModificarProducto.vue'
 import CrearCuenta from '../views/CrearCuenta.vue'
 import IniciarSesion from '../views/IniciarSesion.vue'
-
+import ListaDeUsuarios  from '../views/ListaDeUsuarios.vue'
+import ModificarUsuario  from '../views/ModificarUsuario.vue'
+import Carrito  from '../views/Carrito.vue'
 
 const routes = [
   {
@@ -40,6 +42,11 @@ const routes = [
     component: ModificarProducto
   },
   {
+    path: '/modificarUsuario/:id',
+    name: 'modificarUsuario',
+    component: ModificarUsuario
+  },
+  {
     path: '/CrearCuenta',
     name: 'CrearCuenta',
     component: CrearCuenta
@@ -48,7 +55,17 @@ const routes = [
     path: '/IniciarSesion',
     name: 'IniciarSesion',
     component: IniciarSesion
+  },
+  {
+    path: '/usuarios',
+    name: 'usuarios',
+    component: ListaDeUsuarios
+  },{
+    path: '/carrito',
+    name: 'Carrito',
+    component: Carrito
   }
+
 
 ]
 

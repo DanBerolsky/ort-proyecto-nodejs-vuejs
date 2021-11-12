@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="btn-agregarProd">
-      <router-link to="/productos/agregarProducto">
+      <router-link to="/CrearCuenta">
         <button type="button" class="btn btn-outline-success agregar">Agregar</button>
       </router-link>
     </div>
@@ -10,13 +10,13 @@
       <ul>
         <li
           class="list-group-item item"
-          v-for="(item, index) in this.listaProductos"
+          v-for="(item, index) in this.listaUsuarios"
           :key="index"
         >
-          Nombre : {{ item.nombre }} <br> Precio : $ {{ item.precio }}
+        
+          Nombre : {{ item.nombre }} <br> Contraseña: {{ item.password }} <br> Correo Electronico : {{ item.email }}
           <div class="crud-btn">
-            
-            <router-link :to="{ name: 'modificarProducto', params: { id: item._id }}" >
+        <router-link :to="{ name: 'modificarUsuario', params: { id: item._id }}" >
               <button type="button" class="btn btn-outline-primary mod">
                 Modificar
               </button>
@@ -42,17 +42,18 @@
 
 
 <script>
-import ProductoService from "../servicios/ProductoService.js";
+import UsuarioService from "../servicios/UsuarioService.js";
 
 export default {
-  name: "ListaProducto",
+  name: "ListaDeUsuarios",
   data() {
-    return { listaProductos: {} };
+    return { listaUsuarios: {} };
   },
   created: async function () {
     try {
-      const rta = await ProductoService.get();
-      this.listaProductos = rta.data;
+      const rta = await UsuarioService.get();
+      this.listaUsuarios = rta.data;
+      console.log(this.listaUsuarios);
     } catch (error) {
       alert("Se produjo un error");
     }
@@ -61,7 +62,7 @@ export default {
     async quitar(id) {
       try {
         console.log(id);
-        await ProductoService.delete(id);
+        await UsuarioService.delete(id);
         window.location.href= window.location
 
       } catch (err) {
