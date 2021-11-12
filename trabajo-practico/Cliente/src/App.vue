@@ -69,12 +69,12 @@
       </div>
       <div>
         <router-link class="navbar-brand" to="/productos"
-          >Lista Productos</router-link
+          >Productos</router-link
         >
       </div>
       <div>
         <router-link class="navbar-brand" to="/usuarios"
-          >Lista usuarios</router-link
+          >Usuarios</router-link
         >
       </div>
     </nav>
