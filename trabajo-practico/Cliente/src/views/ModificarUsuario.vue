@@ -67,6 +67,7 @@ export default {
         const Usuario = {_id:id ,name : this.name, password: this.password, email : this.email}
         await UsuarioService.put(id,Usuario); 
         window.location.href= '/usuarios'       
+        alert('Usuario MODIFICADO con exito')
       } catch (err) {
         console.log(err.message);
         console.log('catch')

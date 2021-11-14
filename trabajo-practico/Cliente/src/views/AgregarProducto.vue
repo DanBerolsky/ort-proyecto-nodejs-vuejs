@@ -58,6 +58,7 @@ export default {
       try {
         await ProductoService.post(this);
         window.location.href= '/productos'
+        alert('Producto AGREGADO con exito')
       } catch (error) {
         console.log(error.message);
       }

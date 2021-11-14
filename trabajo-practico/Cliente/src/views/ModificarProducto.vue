@@ -59,7 +59,8 @@ export default {
       try {
         const producto = {_id:id ,nombre : this.nombre, precio: this.precio}
         await ProductoService.put(id,producto); 
-        window.location.href= '/productos'       
+        window.location.href= '/productos'
+        alert('Producto MODIFICADO con exito')       
       } catch (err) {
         console.log(err.message);
         console.log('catch')

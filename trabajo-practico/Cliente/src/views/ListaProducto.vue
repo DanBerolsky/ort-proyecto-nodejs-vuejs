@@ -63,6 +63,7 @@ export default {
         console.log(id);
         await ProductoService.delete(id);
         window.location.href= window.location
+        alert('Producto ELIMINADO con exito')
 
       } catch (err) {
         console.log(err.message);

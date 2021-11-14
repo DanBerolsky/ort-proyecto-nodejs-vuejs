@@ -64,7 +64,7 @@ export default {
         console.log(id);
         await UsuarioService.delete(id);
         window.location.href= window.location
-
+        alert('Usuario ELIMINADO con exito')
       } catch (err) {
         console.log(err.message);
       }
