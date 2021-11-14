@@ -1,5 +1,8 @@
 const router = require('express').Router()
 const usuarios = require('../models/usuarios')
+const bcrypt = require("bcryptjs");
+
+
 
 router.get('/', function (req, res) {
     usuarios.find().then(data => { 
@@ -11,27 +14,6 @@ router.get('/', function (req, res) {
             res.send('err')
         })
 })
-
-//login
-router.post('/login', async function (req, res) {
-    
-    const usuario = req.body
-    
-    const usuEncontrado = await usuarios.find({ email: usuario.email, password: usuario.password }).limit(1);//tre el usuario
-
-    if(usuEncontrado.length != 0) {
-        console.log('accion exitosa - InicioSesion');
-
-        //res.send('post')
-
-    } else {
-
-        console.log('Error, datos mal ingresados');
-    }
-
-})
-
-
 
 router.get('/:id', function (req, res) {
     const id = req.params.id
@@ -45,13 +27,42 @@ router.get('/:id', function (req, res) {
         })
 })
 
-router.post('/', async function (req, res) {
-    const usuario = req.body
-    const usuEncontrado = await usuarios.find({ email: usuario.email }).limit(1);//tre el usuario
 
-    if(usuEncontrado.length == 0) {//si no lo encuentra es un arrayvacio
+//login
+router.post('/login', async function (req, res) {
+    
+    const usuario = req.body;
+    const usuEncontrado = await usuarios.find({ email: usuario.email, password: usuario.password }).limit(1);//tre el usuario
+
+   
+ if(usuEncontrado.length != 0) {
+        console.log('accion exitosa - InicioSesion');
+
+        //res.send('post')
+
+    } else {
+
+        console.log('Error, datos mal ingresados');
+    } 
+  
+})
+
+
+//singup
+router.post('/signup', async function (req, res) {
+    
+    const usuario = req.body;
+    const password = usuario.password;
+    const email =  usuario.email;
+    const salt = 10;
+
+    const usuEncontrado = await usuarios.find({ email: email }).limit(1);//tre el usuario
+    
+    //si no lo encuentra es un arrayvacio
+    if(usuEncontrado.length == 0) {
+        const passEncriptada = await bcrypt.hash(password, salt);
+        await usuarios.create({ nombre: req.body.nombre, password: passEncriptada, email: req.body.email });
         console.log('accion exitosa - crearusuario');
-        await usuarios.create({ nombre: req.body.nombre, password: req.body.password, email: req.body.email });
         res.send('post')
     } else {
         console.log('Error, ya existe el usuario');
@@ -59,6 +70,10 @@ router.post('/', async function (req, res) {
     }
 
 })
+
+
+
+
 
 router.put('/:id', async function (req, res) {
     const id = req.params.id
@@ -80,5 +95,10 @@ router.delete('/:id', async function (req, res) {
     }) 
 
 })
+
+
+
+
+
 
 module.exports = router;

@@ -19,7 +19,7 @@ export default {
     return apiClient.get(url + '/' +  id)
   },
   post(usuario) {
-    return apiClient.post(url + '/', usuario) 
+    return apiClient.post(url + '/signup', usuario) 
   },
   postLogin(usuario) {
     return apiClient.post(url + '/login', usuario) 
