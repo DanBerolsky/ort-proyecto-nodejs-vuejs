@@ -88,7 +88,7 @@
             <br>
             {{item.precio}} ARS
             </p>
-            <button type="button" class="btn btn-danger">Comprar</button>
+            <button type="button" class="btn btn-danger" @click.prevent="comprar(item)">Comprar</button>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@
 <script>
 
 import ProductoService from "../servicios/ProductoService.js";
-
+import { mapState } from 'vuex';
 
 export default {
   name: "Home",
@@ -122,8 +122,13 @@ export default {
     fotoRandom(){
       
       
+    },
+    comprar(item)
+    {this.carritoCompras.push(item)}
+  },
+    computed:{
+        ...mapState(['carritoCompras'])   
     }
-  }
 };
 </script>
 

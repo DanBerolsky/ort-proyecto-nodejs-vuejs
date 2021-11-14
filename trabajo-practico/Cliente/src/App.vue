@@ -11,11 +11,45 @@
         <img src="./assets/search2.svg" class="buscar" />
       </div>
       <div class="div-black">
-        <img src="./assets/black.png" alt=""  class="black"/>
+        <img src="./assets/black.png" alt="" class="black" />
       </div>
-        
+
       <div class="div-cart">
-          <img src="./assets/shopping-cart.svg" class="carrito" alt="" />
+        <router-link class="crearCuenta text-white" to="/carrito">
+          <img
+            style="margin-right: 64px"
+            src="./assets/shopping-cart.svg"
+            class="carrito"
+            alt=""
+          />
+        </router-link>
+        <div
+          style="
+            position: absolute;
+            background-color: red;
+            border-radius: 68px;
+            min-width: fit-content;
+            min-height: fit-content;
+            margin: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            left: -6px;
+            top: 20px;
+          "
+        >
+          <p
+            style="
+              font-size: 15px;
+              padding: 0;
+              margin: 0;
+              width: fit-content;
+              height: fit-content;
+              color: white;
+            "
+          >
+            {{ items() }}
+          </p>
+        </div>
       </div>
 
       <div class="sesion">
@@ -26,49 +60,63 @@
           <p>INICIAR SESION</p>
         </router-link>
       </div>
-        
-     
     </nav>
 
     <nav class="nav navbar-light container mar">
-      <div><router-link class="navbar-brand" to="/">Home</router-link>
-        </div>
-        <div><router-link class="navbar-brand" to="/about">About</router-link>
-        </div>
-        <div><router-link class="navbar-brand" to="/productos">ListaProductos</router-link
-        ></div>
+      <div><router-link class="navbar-brand" to="/">Home</router-link></div>
+      <div>
+        <router-link class="navbar-brand" to="/about">About</router-link>
+      </div>
+      <div>
+        <router-link class="navbar-brand" to="/productos"
+          >Productos</router-link
+        >
+      </div>
+      <div>
+        <router-link class="navbar-brand" to="/usuarios"
+          >Usuarios</router-link
+        >
+      </div>
     </nav>
     <router-view />
-
   </div>
-  
 </template>
 
-<style >
 
-.flex-con{
+<script>
+export default {
+  name: "Home",
+
+  methods: {
+    items() {
+      console.log(this.$store.state.carritoCompras.length);
+      return this.$store.state.carritoCompras.length;
+    },
+  },
+};
+</script>
+
+
+
+<style >
+.flex-con {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center;
 }
 
-.flex-con div{
+.flex-con div {
   flex-basis: 10px;
   min-width: 100px;
- 
-
 }
 
 .carousel {
-    position: relative;
-    /* left: auto !important; */
-    /* right: 0 !important; */
-    max-width: 1000px;
-    left: 23%;
+  position: relative;
+  /* left: auto !important; */
+  /* right: 0 !important; */
+  max-width: 1000px;
+  left: 23%;
 }
-
-
-
 
 .mar {
   margin-top: 40px;
@@ -76,30 +124,25 @@
   border-radius: 25px;
 }
 
-.nav{
-  justify-content: space-around ;
-  
-  
+.nav {
+  justify-content: space-around;
 }
 
 .navbar-brand {
   /* padding-top: 0px; */
   /* padding-bottom: 0px; */
-  font-size: 1.70rem !important;
+  font-size: 1.7rem !important;
   padding: 30px;
-  
 }
 .navbar-brand:hover {
   background-color: #a8a8a821;
   color: white;
-  
+
   border-radius: 20px;
 }
 
 .navbar-expand-lg {
   flex-wrap: nowrap;
-  
-  
 }
 .header1 {
   background-color: #000000;
@@ -108,16 +151,15 @@
   position: relative;
   display: flex;
   align-items: center;
-  order : 4;
+  order: 4;
   max-width: 100px;
   min-width: 150px;
   justify-content: center;
-  
 }
-.div-buscar{
+.div-buscar {
   position: relative;
   display: flex;
-  order:0;
+  order: 0;
   width: 200px;
   max-width: 200px;
   min-width: 150px;
@@ -125,34 +167,28 @@
   flex-grow: 2;
 }
 
-.sesion{
-  
+.sesion {
   flex-basis: 100px;
   flex-grow: 1;
-  order:3
-
-  
+  order: 3;
 }
 
-.div-black{
+.div-black {
   order: 1;
   flex-grow: 6;
   display: flex;
-  justify-content: center;  
+  justify-content: center;
 }
-.black{
+.black {
   order: 1;
   max-width: fit-content;
-  
 }
-.iniciarSesion{
+.iniciarSesion {
   position: relative;
   text-align: center;
-  
 }
-.crearCuenta{
+.crearCuenta {
   position: relative;
   text-align: center;
- 
 }
 </style>

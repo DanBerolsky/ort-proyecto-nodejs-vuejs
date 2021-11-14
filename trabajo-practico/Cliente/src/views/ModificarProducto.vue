@@ -23,7 +23,7 @@
           </div>
 
           <button type="submit" @click.prevent="modificar($route.params.id)" class="btn btn-primary button">Modificar</button>
-          <button type="button" class="btn btn-secondary button">Cancelar</button>
+           <button type="button" @click.prevent="cancelar" class="btn btn-secondary button">Cancelar</button>
         </form>     
      
     </div>
@@ -64,7 +64,9 @@ export default {
         console.log(err.message);
         console.log('catch')
       }
-    },
+    },cancelar(){
+        window.location.href= '/productos' 
+    }
   }
 
 };

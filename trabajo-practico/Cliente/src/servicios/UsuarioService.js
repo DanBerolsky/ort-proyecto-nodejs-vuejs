@@ -27,8 +27,8 @@ export default {
   delete(id) {
     return apiClient.delete(url + '/' + id)
   },
-  put(usuario) {
+  put(id,usuario) {
       console.log(usuario)
-      return (url + '/' + usuario.id , usuario)
+      return apiClient.put(url + '/' + id, usuario)
   },
 }

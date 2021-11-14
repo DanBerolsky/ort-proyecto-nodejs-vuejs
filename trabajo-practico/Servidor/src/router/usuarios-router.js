@@ -77,7 +77,7 @@ router.post('/signup', async function (req, res) {
 
 router.put('/:id', async function (req, res) {
     const id = req.params.id
-    await usuarios.findByIdAndUpdate({ _id: id },{ nombre: req.body.nombre, password: req.body.password, email: req.body.email });
+    await usuarios.findByIdAndUpdate({ _id: id },{ nombre: req.body.name, password: req.body.password, email: req.body.email });
     console.log('accion exitosa - modificado');
     res.send('put')
 })
