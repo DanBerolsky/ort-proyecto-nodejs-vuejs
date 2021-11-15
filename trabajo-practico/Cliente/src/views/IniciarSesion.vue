@@ -48,8 +48,6 @@
                       </button>
                       
                     </div>
-                   
-                      
                   </form>
                 </div>
               </div>
@@ -76,8 +74,16 @@ export default {
   methods: {
     async iniciarSesion() {
       try {
-        await UsuarioService.postLogin(this);
-        window.location.href = "/home";
+        const test = await UsuarioService.postLogin(this);
+        const res = test.data
+        if (res != 'Success') {
+          window.location.href= '/iniciarSesion'
+          alert('Datos mal ingresados, inicio de sesion no completado')
+        }else{
+          window.location.href= '/'
+          alert('BIENVENIDO A BLACK - Inicio de sesion exitoso')
+        }
+
       } catch (error) {
         console.log(error.message);
       }

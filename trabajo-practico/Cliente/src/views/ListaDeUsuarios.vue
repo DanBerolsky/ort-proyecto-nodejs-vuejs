@@ -14,7 +14,7 @@
           :key="index"
         >
         
-          Nombre : {{ item.nombre }} <br> Contraseña: {{ item.password }} <br> Correo Electronico : {{ item.email }}
+          Nombre : {{ item.nombre }} <br><br> Contraseña: {{ item.password }} <br> -vista de contraseña encriptada unicamente de muestra- <br><br> Correo Electronico : {{ item.email }}
           <div class="crud-btn">
         <router-link :to="{ name: 'modificarUsuario', params: { id: item._id }}" >
               <button type="button" class="btn btn-outline-primary mod">

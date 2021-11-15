@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 
 
 router.get('/', function (req, res) {
-    usuarios.find().then(data => { 
+    usuarios.find().then(data => {
         console.log('accion exitosa - listaUsu');
         res.send(data)
     })
@@ -29,37 +29,81 @@ router.get('/:id', function (req, res) {
 
 
 //login
-router.post('/login', async function (req, res) {
+/* router.post('/login', async function (req, res) {
     
     const usuario = req.body;
-    const usuEncontrado = await usuarios.find({ email: usuario.email, password: usuario.password }).limit(1);//tre el usuario
-
+    const usuEncontrado = await usuarios.find({ email: usuario.email}).limit(1);//tre el usuario
    
  if(usuEncontrado.length != 0) {
         console.log('accion exitosa - InicioSesion');
 
-        //res.send('post')
+        res.send('post')
 
     } else {
 
         console.log('Error, datos mal ingresados');
     } 
   
+}) */
+router.post('/login', async function (req, res) {
+
+   
+    /* const usuEncontrado = await usuarios.findOne({ email: req.body.email});//tre el usuario
+    console.log(usuEncontrado);
+    if (usuEncontrado.length == null) {
+        console.log('Error, datos mal ingresados');
+    }
+    try {
+      const comparador = await bcrypt.compare(usuario.password, usuEncontrado.password)
+      if(comparador){
+        console.log('accion exitosa - InicioSesion');
+        res.send('Succes');
+      }else{
+        res.send('Not allowed');
+      }
+    } catch (error) {
+        console.log(error.message);
+        
+    }
+ */
+    try {
+        const usuEncontrado = await usuarios.findOne({ email: req.body.email });
+        console.log(usuEncontrado);
+        if (usuEncontrado) {
+          const cmp = await bcrypt.compare(req.body.password, usuEncontrado.password);
+          if (cmp) {
+            //   ..... further code to maintain authentication like jwt or sessions
+            res.send("Success");
+            console.log('accion exitosa - InicioSesion');
+          } else {
+            res.send("Wrong");
+            console.log('Error, datos mal ingresados');
+          }
+        } else {
+          res.send("Wrong");
+          console.log('Error, datos mal ingresados');
+        }
+      } catch (error) {
+        console.log(error.message);
+        res.status(500).send("Internal Server error Occured");
+      } 
 })
 
 
-//singup
+
+
+//signup
 router.post('/signup', async function (req, res) {
-    
+
     const usuario = req.body;
     const password = usuario.password;
-    const email =  usuario.email;
+    const email = usuario.email;
     const salt = 10;
 
     const usuEncontrado = await usuarios.find({ email: email }).limit(1);//tre el usuario
-    
+
     //si no lo encuentra es un arrayvacio
-    if(usuEncontrado.length == 0) {
+    if (usuEncontrado.length == 0) {
         const passEncriptada = await bcrypt.hash(password, salt);
         await usuarios.create({ nombre: req.body.nombre, password: passEncriptada, email: req.body.email });
         console.log('accion exitosa - crearusuario');
@@ -77,13 +121,13 @@ router.post('/signup', async function (req, res) {
 
 router.put('/:id', async function (req, res) {
     const id = req.params.id
-    await usuarios.findByIdAndUpdate({ _id: id },{ nombre: req.body.name, password: req.body.password, email: req.body.email });
+    await usuarios.findByIdAndUpdate({ _id: id }, { nombre: req.body.name, password: req.body.password, email: req.body.email });
     console.log('accion exitosa - modificado');
     res.send('put')
 })
 
 router.delete('/:id', async function (req, res) {
-    
+
     usuarios.findByIdAndRemove(req.params.id, req.body, function (err, data) {
         if (!err) {
             console.log('accion exitosa - borrado');
@@ -92,7 +136,7 @@ router.delete('/:id', async function (req, res) {
             console.log(err);
             res.send('err')
         }
-    }) 
+    })
 
 })
 
