@@ -28,44 +28,10 @@ router.get('/:id', function (req, res) {
 })
 
 
-//login
-/* router.post('/login', async function (req, res) {
-    
-    const usuario = req.body;
-    const usuEncontrado = await usuarios.find({ email: usuario.email}).limit(1);//tre el usuario
-   
- if(usuEncontrado.length != 0) {
-        console.log('accion exitosa - InicioSesion');
 
-        res.send('post')
-
-    } else {
-
-        console.log('Error, datos mal ingresados');
-    } 
-  
-}) */
 router.post('/login', async function (req, res) {
 
    
-    /* const usuEncontrado = await usuarios.findOne({ email: req.body.email});//tre el usuario
-    console.log(usuEncontrado);
-    if (usuEncontrado.length == null) {
-        console.log('Error, datos mal ingresados');
-    }
-    try {
-      const comparador = await bcrypt.compare(usuario.password, usuEncontrado.password)
-      if(comparador){
-        console.log('accion exitosa - InicioSesion');
-        res.send('Succes');
-      }else{
-        res.send('Not allowed');
-      }
-    } catch (error) {
-        console.log(error.message);
-        
-    }
- */
     try {
         const usuEncontrado = await usuarios.findOne({ email: req.body.email });
         console.log(usuEncontrado);
