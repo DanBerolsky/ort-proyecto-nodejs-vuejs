@@ -28,13 +28,13 @@ router.get('/:id', function (req, res) {
 })
 
 router.post('/', async function (req, res) {
-    await producto.create({ nombre: req.body.nombre, precio: req.body.precio });
+    await producto.create({ nombre: req.body.nombre, precio: req.body.precio, talle: req.body.talle });
     res.send('post')
 })
 
 router.put('/:id', async function (req, res) {
     const id = req.params.id
-    await producto.findByIdAndUpdate({ _id: id },{ nombre: req.body.nombre, precio: req.body.precio });
+    await producto.findByIdAndUpdate({ _id: id },{ nombre: req.body.nombre, precio: req.body.precio, talle: req.body.talle });
     console.log('accion exitosa - modificado');
     res.send('put')
 })

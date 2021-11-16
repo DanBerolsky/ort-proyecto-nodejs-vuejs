@@ -35,24 +35,21 @@
                 <div style=" align-self: flex-start;">
                     Precio : $ {{ item.precio }}
                 </div>
+
+                <div style=" align-self: flex-start;">
+                    Talle : {{ item.talle }}
+                </div>
             </div>
           
           <div class="crud-btn">
-            
-            <!--<router-link :to="{ name: 'modificarProducto', params: { id: item._id }}" >
+            <!--ESTO ES LO QUE HAY QUE CAMBIAR, QUE TE LLEVE A OTRA VISTA -->
+            <router-link :to="{ name: 'modificarProducto', params: { id: item._id, esUsuario: true }}" >
               <button type="button" class="btn btn-outline-primary mod">
                 Modificar
               </button>
-            </router-link>-->
+            </router-link>
 
-            <button
-              type="button"
-              @click="quitar(item)"
-              class="btn btn-outline-danger quit"
-            >
-              Quitar
-            </button>
-            
+            <button type="button" @click="quitar(item)" class="btn btn-outline-danger quit"> Quitar</button>
           </div>
         </li>
       </ul>
@@ -75,9 +72,7 @@ export default {
     
     methods:{
         quitar(producto) {
-             
-            this.$store.state.carritoCompras = this.$store.state.carritoCompras.filter( obj =>{console.log(obj.nombre !== producto.nombre); return obj.nombre !== producto.nombre});
-           
+            this.$store.state.carritoCompras = this.$store.state.carritoCompras.filter( obj =>{return obj.nombre !== producto.nombre});
         },finalizarCompra(){
           window.location.href= window.location
         }

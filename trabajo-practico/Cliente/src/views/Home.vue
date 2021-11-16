@@ -81,12 +81,13 @@
           
           <img src="../assets/remera1.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            
             <p class="card-text"> 
             {{item.nombre}}
-
             <br>
-            {{item.precio}} ARS
+            {{item.precio}} $ARS
+            <br>
+            Talle: {{item.talle}}
             </p>
             <button type="button" class="btn btn-danger" @click.prevent="comprar(item)">Comprar</button>
           </div>
@@ -124,7 +125,10 @@ export default {
       
     },
     comprar(item)
-    {this.carritoCompras.push(item)}
+    {
+      this.carritoCompras.push(item)
+      alert('Su producto se ha agregado al carrito!')
+    }
   },
     computed:{
         ...mapState(['carritoCompras'])   

@@ -7,7 +7,7 @@
     <div class="f-cont">
       
         <form method="PUT">
-          <div class="mb-3">
+          <div class="mb-3" v-if="$route.params.esUsuario != 'true'">
             <label for="Nombre del producto" class="form-label"
               >Nombre del producto</label
             >
@@ -16,9 +16,20 @@
               Ingresar nombre del producto aqui
             </div>
           </div>
-          <div class="mb-3">
+          <div class="mb-3" v-if="$route.params.esUsuario != 'true'">
             <label for="Precio"  class="form-label">Precio ($)</label>
             <input type="number" v-model="precio" class="form-control" id="precio" />
+            
+          </div>
+          <div class="mb-3">
+            <label for="Precio"  class="form-label">Talle </label>
+            <br>
+            <select name="talles" id="talles" v-model="talle">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
             
           </div>
 
@@ -40,6 +51,7 @@ export default {
     return {
       nombre: "",
       precio: "",
+      talle:'',
     };
   },
    
@@ -48,6 +60,7 @@ export default {
       const rta = await ProductoService.getById(this.$route.params.id);
       this.nombre = rta.data.nombre;
       this.precio = rta.data.precio;
+      this.talle = rta.data.talle;
     } catch (error) {
       alert("Se produjo un error");
     }
@@ -56,8 +69,9 @@ export default {
   methods: {
     async modificar(id) {
       
+      
       try {
-        const producto = {_id:id ,nombre : this.nombre, precio: this.precio}
+        const producto = {_id:id, nombre: this.nombre, precio: this.precio, talle: this.talle}
         await ProductoService.put(id,producto); 
         window.location.href= '/productos'
         alert('Producto MODIFICADO con exito')       

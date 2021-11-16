@@ -13,7 +13,7 @@
           v-for="(item, index) in this.listaProductos"
           :key="index"
         >
-          Nombre : {{ item.nombre }} <br> Precio : $ {{ item.precio }}
+          Nombre : {{ item.nombre }} <br> Precio : $ {{ item.precio }} <br> Talle:  {{item.talle}}
           <div class="crud-btn">
             
             <router-link :to="{ name: 'modificarProducto', params: { id: item._id }}" >

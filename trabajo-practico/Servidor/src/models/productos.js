@@ -12,7 +12,12 @@ const Producto = new Schema({ //defino el schema
     precio:{
         type: Number,
         required: true
-    }, 
+    },
+    talle:{
+        type: String,
+        enum:['S', 'M', 'L', 'XL'],
+        required: true
+    },
 }, {
     colecction: 'productos'
 })
