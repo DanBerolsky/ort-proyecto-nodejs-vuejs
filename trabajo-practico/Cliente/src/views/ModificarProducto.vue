@@ -7,16 +7,16 @@
     <div class="f-cont">
       
         <form method="PUT">
-          <div class="mb-3" v-if="$route.params.esUsuario != 'true'">
+          <div class="mb-3"  v-if="$route.params.esUsuario !== 'true'">
             <label for="Nombre del producto" class="form-label"
               >Nombre del producto</label
             >
-            <input type="text" v-model="nombre" class="form-control" id="nombre" />
+            <input  type="text" v-model="nombre" class="form-control" id="nombre" />
             <div id="nombre" class="form-text">
               Ingresar nombre del producto aqui
             </div>
           </div>
-          <div class="mb-3" v-if="$route.params.esUsuario != 'true'">
+          <div class="mb-3" v-if="$route.params.esUsuario !== 'true'">
             <label for="Precio"  class="form-label">Precio ($)</label>
             <input type="number" v-model="precio" class="form-control" id="precio" />
             
@@ -33,8 +33,10 @@
             
           </div>
 
-          <button type="submit" @click.prevent="modificar($route.params.id)" class="btn btn-primary button">Modificar</button>
-           <button type="button" @click.prevent="cancelar" class="btn btn-secondary button">Cancelar</button>
+          <button v-if="$route.params.esUsuario !== 'true'" type="button" @click.prevent="modificar($route.params.id)" class="btn btn-primary button">Modificar</button>
+          <button v-if="$route.params.esUsuario !== 'true'" type="button" @click.prevent="cancelar" class="btn btn-secondary button">Cancelar</button>
+          <button v-if="$route.params.esUsuario == 'true'" type="button" @click.prevent="modificarDesdeCarrito($route.params.id)" class="btn btn-primary button">Modificar</button>
+          <button v-if="$route.params.esUsuario == 'true'" type="button" @click.prevent="cancelarDesdeCarrito" class="btn btn-secondary button">Cancelar</button>
         </form>     
      
     </div>
@@ -79,8 +81,31 @@ export default {
         console.log(err.message);
         console.log('catch')
       }
-    },cancelar(){
+    },
+    async modificarDesdeCarrito(id) {
+      
+      
+      try {
+        const producto = {_id:id, nombre: this.nombre, precio: this.precio, talle: this.talle}
+        this.$store.state.carritoCompras = this.$store.state.carritoCompras.filter( obj =>{return obj._id !== producto._id});
+        this.$store.state.carritoCompras.push(producto)
+        await ProductoService.put(id,producto); 
+        alert('Producto MODIFICADO con exito')
+        window.history.back()       
+      } catch (err) {
+        console.log(err.message);
+        console.log('catch')
+      }
+    
+    }
+    ,cancelar(){
         window.location.href= '/productos' 
+    }
+    
+    
+    
+    ,cancelarDesdeCarrito(){
+        window.history.back()
     }
   }
 

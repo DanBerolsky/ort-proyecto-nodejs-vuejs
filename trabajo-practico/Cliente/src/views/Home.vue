@@ -79,7 +79,7 @@
         <div class="card">
           
           
-          <img src="../assets/remera1.jpg" class="card-img-top" alt="..." />
+          <img src='../assets/remera1.jpg' class="card-img-top" alt="..." />
           <div class="card-body">
             
             <p class="card-text"> 
@@ -109,7 +109,11 @@ import { mapState } from 'vuex';
 export default {
   name: "Home",
   data() {
-    return { listaProductos: {} };
+    return { 
+    listaProductos: {} ,
+    fotos:['../assets/remera1.jpg','../assets/remera2.jpg','../assets/remera3.png','../assets/remera4.webp'],
+    
+    };
   },
   created: async function () {
     try {
@@ -121,7 +125,8 @@ export default {
     
   },methods:{
     fotoRandom(){
-      
+      console.log(this.fotos[Math.floor(Math.random()*this.fotos.length)]);
+      return this.fotos[Math.floor(Math.random()*this.fotos.length)];
       
     },
     comprar(item)
