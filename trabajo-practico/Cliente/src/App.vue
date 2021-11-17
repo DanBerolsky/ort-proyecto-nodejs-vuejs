@@ -87,12 +87,12 @@
       <div>
         <router-link class="navbar-brand" to="/about">About</router-link>
       </div>
-      <div v-if="this.$store.state.usuario == 'hola'">
+      <div v-if="this.$store.state.usuario.rol == 'ADMIN'">
         <router-link class="navbar-brand" to="/productos"
           >Productos</router-link
         >
       </div>
-      <div v-if="this.$store.state.usuario == 'hola'">
+      <div v-if="this.$store.state.usuario.rol == 'ADMIN'">
         <router-link class="navbar-brand" to="/usuarios">Usuarios</router-link>
       </div>
     </nav>
