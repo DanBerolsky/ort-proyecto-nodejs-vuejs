@@ -74,7 +74,8 @@ export default {
         quitar(producto) {
             this.$store.state.carritoCompras = this.$store.state.carritoCompras.filter( obj =>{return obj.nombre !== producto.nombre});
         },finalizarCompra(){
-          window.location.href= window.location
+          this.$store.state.carritoCompras=[]
+          window.history.back()
         }
         
     },
