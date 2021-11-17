@@ -4,8 +4,8 @@ import { createStore } from 'vuex'
 const store = createStore({
   state () {
     return {
-      carritoCompras:[]
-     
+      carritoCompras:[],
+      usuario:'hola'
     }
   },
   

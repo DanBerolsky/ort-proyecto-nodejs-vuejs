@@ -34,13 +34,15 @@ router.post('/login', async function (req, res) {
    
     try {
         const usuEncontrado = await usuarios.findOne({ email: req.body.email });
-        console.log(usuEncontrado);
+        
         if (usuEncontrado) {
           const cmp = await bcrypt.compare(req.body.password, usuEncontrado.password);
           if (cmp) {
             //   ..... further code to maintain authentication like jwt or sessions
-            res.send("Success");
+            res.send({"nombre": usuEncontrado.nombre, "rol": usuEncontrado.rol});
+            
             console.log('accion exitosa - InicioSesion');
+
           } else {
             res.send("Wrong");
             console.log('Error, datos mal ingresados');
