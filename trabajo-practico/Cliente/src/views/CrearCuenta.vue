@@ -82,7 +82,7 @@ export default {
       
       try {
         await UsuarioService.post(this);
-        window.location.href= '/'
+        window.history.back()
         alert('BIENVENIDO A BLACK - Tu cuenta fue creada con exito')
       } catch (error) {
         console.log(error.message);

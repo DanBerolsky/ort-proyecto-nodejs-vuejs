@@ -64,7 +64,7 @@ export default {
     async agregarProducto() {
       try {
         await ProductoService.post(this);
-        window.location.href = "/productos";
+        window.history.back()
         alert("Producto AGREGADO con exito");
       } catch (error) {
         console.log(error.message);

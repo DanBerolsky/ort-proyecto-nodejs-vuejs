@@ -73,7 +73,7 @@ export default {
       try {
           const producto = {_id:id, nombre: this.nombre, precio: this.precio, talle: this.talle}
           await ProductoService.put(id,producto); 
-          window.location.href= '/productos'
+          window.history.back()
           alert('Producto MODIFICADO con exito')       
       } catch (err) {
           console.log(err.message);
