@@ -81,7 +81,7 @@ export default {
           window.location.href= '/iniciarSesion'
           alert('Datos mal ingresados, inicio de sesion no completado')
         }else{
-          window.history.back() 
+          window.history.back()//no refresquea la pagina
           alert('BIENVENIDO A BLACK - Inicio de sesion exitoso')
           this.$store.state.usuario = res
         }

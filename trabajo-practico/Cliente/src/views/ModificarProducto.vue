@@ -48,7 +48,8 @@
 import ProductoService from "../servicios/ProductoService.js";
 
 export default {
-  name: "ModificarProducto",
+ 
+ name: "ModificarProducto",
   data() {
     return {
       nombre: "",
@@ -56,55 +57,47 @@ export default {
       talle:'',
     };
   },
-   
-    created: async function () {
+   created: async function () { 
     try {
-      const rta = await ProductoService.getById(this.$route.params.id);
-      this.nombre = rta.data.nombre;
-      this.precio = rta.data.precio;
-      this.talle = rta.data.talle;
+        const rta = await ProductoService.getById(this.$route.params.id);
+        this.nombre = rta.data.nombre;
+        this.precio = rta.data.precio;
+        this.talle = rta.data.talle;
     } catch (error) {
-      alert("Se produjo un error");
+        alert("Se produjo un error");
     }
   },
    
   methods: {
     async modificar(id) {
-      
-      
       try {
-        const producto = {_id:id, nombre: this.nombre, precio: this.precio, talle: this.talle}
-        await ProductoService.put(id,producto); 
-        window.location.href= '/productos'
-        alert('Producto MODIFICADO con exito')       
+          const producto = {_id:id, nombre: this.nombre, precio: this.precio, talle: this.talle}
+          await ProductoService.put(id,producto); 
+          window.location.href= '/productos'
+          alert('Producto MODIFICADO con exito')       
       } catch (err) {
-        console.log(err.message);
-        console.log('catch')
+          console.log(err.message);
+          console.log('catch')
       }
     },
     async modificarDesdeCarrito(id) {
-      
-      
       try {
-        const producto = {_id:id, nombre: this.nombre, precio: this.precio, talle: this.talle}
-        this.$store.state.carritoCompras = this.$store.state.carritoCompras.filter( obj =>{return obj._id !== producto._id});
-        this.$store.state.carritoCompras.push(producto)
-        await ProductoService.put(id,producto); 
-        alert('Producto MODIFICADO con exito')
-        window.history.back()       
+          const producto = {_id:id, nombre: this.nombre, precio: this.precio, talle: this.talle}
+          this.$store.state.carritoCompras = this.$store.state.carritoCompras.filter( obj =>{return obj._id !== producto._id});
+          this.$store.state.carritoCompras.push(producto)//cambia en carrito
+          await ProductoService.put(id,producto); //cambia en base
+          alert('Producto MODIFICADO con exito')
+          window.history.back()       
       } catch (err) {
-        console.log(err.message);
-        console.log('catch')
+          console.log(err.message);
+          console.log('catch')
       }
     
-    }
-    ,cancelar(){
+    },
+    cancelar(){
         window.location.href= '/productos' 
-    }
-    
-    
-    
-    ,cancelarDesdeCarrito(){
+    },
+    cancelarDesdeCarrito(){
         window.history.back()
     }
   }
