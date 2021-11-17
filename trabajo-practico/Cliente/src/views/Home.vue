@@ -117,7 +117,7 @@ export default {
   },
   created: async function () {
     try {
-      const rta = await ProductoService.get();
+      const rta = await ProductoService.get();//le llega todos los productos
       this.listaProductos = rta.data;
     } catch (error) {
       alert("Se produjo un error");
