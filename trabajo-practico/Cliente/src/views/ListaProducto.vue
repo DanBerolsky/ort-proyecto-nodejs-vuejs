@@ -16,7 +16,7 @@
           Nombre : {{ item.nombre }} <br> Precio : $ {{ item.precio }} <br> Talle:  {{item.talle}}
           <div class="crud-btn">
             
-            <router-link :to="{ name: 'modificarProducto', params: { id: item._id }}" >
+            <router-link :to="{ name: 'modificarProducto', params: { id: item._id, usuario:this.$store.state.carritoCompras}}" >
               <button type="button" class="btn btn-outline-primary mod">
                 Modificar
               </button>

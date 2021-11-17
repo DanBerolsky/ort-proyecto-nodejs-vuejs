@@ -58,6 +58,7 @@ export default {
     };
   },
    created: async function () { 
+    this.$store.state.carritoCompras=this.$route.params.usuario
     try {
         const rta = await ProductoService.getById(this.$route.params.id);
         this.nombre = rta.data.nombre;
