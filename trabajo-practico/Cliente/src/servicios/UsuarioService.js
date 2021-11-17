@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-//quizas esto tiene q ir en un archivo aparte xq q se tenga q crear 1 axio por cada service???
 const apiClient = axios.create({
   baseURL: `http://localhost:3000`,
   headers: {

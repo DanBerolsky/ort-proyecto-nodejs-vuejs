@@ -80,19 +80,14 @@ export default {
           console.log('catch')
       }
     },
-    async modificarDesdeCarrito(id) {
-      try {
+    modificarDesdeCarrito(id) {
+      
           const producto = {_id:id, nombre: this.nombre, precio: this.precio, talle: this.talle}
           this.$store.state.carritoCompras = this.$store.state.carritoCompras.filter( obj =>{return obj._id !== producto._id});
           this.$store.state.carritoCompras.push(producto)//cambia en carrito
-          await ProductoService.put(id,producto); //cambia en base
           alert('Producto MODIFICADO con exito')
           window.history.back()       
-      } catch (err) {
-          console.log(err.message);
-          console.log('catch')
-      }
-    
+      
     },
     cancelar(){
         window.location.href= '/productos' 

@@ -5,7 +5,7 @@ const store = createStore({
   state () {
     return {
       carritoCompras:[],
-      usuario:'hola'
+      usuario:'a'
     }
   },
   

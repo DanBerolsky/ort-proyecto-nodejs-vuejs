@@ -81,9 +81,15 @@ export default {
     async crearCuenta() {
       
       try {
-        await UsuarioService.post(this);
+        const test =  await UsuarioService.post(this);
+        const res = test.data
+        if (res == 'Success') {
         window.history.back()
         alert('BIENVENIDO A BLACK - Tu cuenta fue creada con exito')
+        }else{
+           alert('TU CUENTA NO FUE CREADA - Te falta rellenar campos')
+           window.history.back()
+        }
       } catch (error) {
         console.log(error.message);
       }

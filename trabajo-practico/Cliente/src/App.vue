@@ -52,7 +52,7 @@
         </div>
       </div>
 
-      <div class="sesion" v-if="this.$store.state.usuario == 'hola'">
+      <div class="sesion" v-if="this.$store.state.usuario == 'a'">
         <router-link class="crearCuenta text-white" to="/crearCuenta">
           <p>CREAR CUENTA</p>
         </router-link>
@@ -61,7 +61,7 @@
         </router-link>
       </div>
 
-      <div class="sesion" v-if="this.$store.state.usuario != 'hola'">
+      <div class="sesion" v-if="this.$store.state.usuario != 'a'">
         <p class="crearCuenta text-white">
           BIENVENIDO {{ this.$store.state.usuario.nombre }} !
         </p>

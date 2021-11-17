@@ -42,18 +42,18 @@ router.post('/signup', async function (req, res) {
             const passEncriptada = await bcrypt.hash(usuario.password, salt);
             await usuarios.create({ nombre: req.body.nombre, password: passEncriptada, email: req.body.email });
             console.log('accion exitosa - crearusuario');
-            res.send('post')
+            res.send('Success')
         } else {
             console.log('Error, ya existe el usuario');
-
+            res.send('Wrong')
         }
     } catch (error) {
         console.log(error.message);
-        res.status(500).send("Internal Server error Occured");
+        res.send('Wrong')
   } 
 })
 
-//logueo
+//login
 router.post('/login', async function (req, res) {
 
     try {
