@@ -52,13 +52,33 @@
         </div>
       </div>
 
-      <div class="sesion">
+      <div class="sesion" v-if="this.$store.state.usuario == 'hola'">
         <router-link class="crearCuenta text-white" to="/crearCuenta">
           <p>CREAR CUENTA</p>
         </router-link>
         <router-link class="iniciarSesion text-white" to="/iniciarSesion">
           <p>INICIAR SESION</p>
         </router-link>
+      </div>
+
+      <div class="sesion" v-if="this.$store.state.usuario != 'hola'">
+        <p class="crearCuenta text-white">
+          BIENVENIDO {{ this.$store.state.usuario.nombre }} !
+        </p>
+        <button class="iniciarSesion"
+          type="button"
+          @click="cerrarSesion"
+          style="
+            background-color: black;
+            border-color: black;
+            color: white;
+            position: absolute;
+            left: 1630px;
+            width: fit-content;
+          "
+        >
+          Cerrar sesion
+        </button>
       </div>
     </nav>
 
@@ -67,15 +87,13 @@
       <div>
         <router-link class="navbar-brand" to="/about">About</router-link>
       </div>
-      <div>
+      <div v-if="this.$store.state.usuario.rol == 'ADMIN'">
         <router-link class="navbar-brand" to="/productos"
           >Productos</router-link
         >
       </div>
-      <div>
-        <router-link class="navbar-brand" to="/usuarios"
-          >Usuarios</router-link
-        >
+      <div v-if="this.$store.state.usuario.rol == 'ADMIN'">
+        <router-link class="navbar-brand" to="/usuarios">Usuarios</router-link>
       </div>
     </nav>
     <router-view />
@@ -89,8 +107,10 @@ export default {
 
   methods: {
     items() {
-      console.log(this.$store.state.carritoCompras.length);
       return this.$store.state.carritoCompras.length;
+    },
+    cerrarSesion() {
+      window.location.href = "/";
     },
   },
 };

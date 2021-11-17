@@ -76,12 +76,14 @@ export default {
       try {
         const test = await UsuarioService.postLogin(this);
         const res = test.data
-        if (res != 'Success') {
+        
+        if (res == 'Wrong') {
           window.location.href= '/iniciarSesion'
           alert('Datos mal ingresados, inicio de sesion no completado')
         }else{
-          window.location.href= '/'
+          window.history.back() 
           alert('BIENVENIDO A BLACK - Inicio de sesion exitoso')
+          this.$store.state.usuario = res
         }
 
       } catch (error) {
